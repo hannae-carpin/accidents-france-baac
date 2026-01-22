@@ -37,6 +37,7 @@ accidents-france-baac/
 ├─ src/                 # fonctions réutilisables (chargement/clean/kpi)
 ├─ outputs/
 │  ├─ figures/
+│  ├─ report_eda.html
 │  └─ report_insights.html
 ├─ requirements.txt
 └─ README.md
@@ -59,5 +60,8 @@ Lancer les notebooks dans l’ordre :
 1. `notebooks/01_eda.ipynb`
 2. `notebooks/02_insights.ipynb`
 
-## Rapport HTML
-- Analyse des insights : `outputs/report_insights.html`
+## Rapports HTML
+Les analyses sont également disponibles sous forme de rapports HTML, consultables sans exécuter les notebooks :
+
+- EDA (exploration & contrôle qualité) : `outputs/report_eda.html`
+- Insights & recommandations : `outputs/report_insights.html`
