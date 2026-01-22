@@ -1,0 +1,22 @@
+# Environnements virtuels
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Données brutes
+data/raw/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
