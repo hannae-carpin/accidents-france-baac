@@ -61,7 +61,31 @@ Lancer les notebooks dans l’ordre :
 2. `notebooks/02_insights.ipynb`
 
 ## Rapports HTML
-Les analyses sont également disponibles sous forme de rapports HTML, consultables sans exécuter les notebooks :
 
-- EDA (exploration & contrôle qualité) : `outputs/report_eda.html`
-- Insights & recommandations : `outputs/report_insights.html`
+Les rapports HTML sont générés via Jupyter nbconvert.
+Ils doivent être ouverts dans un navigateur web local.
+
+- EDA : outputs/report_eda.html
+- Insights : outputs/report_insights.html
+
+Commande (Windows PowerShell) :
+start outputs\report_eda.html
+start outputs\report_insights.html
+
+## Aperçu des résultats
+
+### Accidents par heure
+![Accidents par heure](outputs/figures/01_accidents_par_heure.png)
+
+### Accidents par jour de la semaine
+![Accidents par jour](outputs/figures/02_accidents_par_jour_semaine.png)
+
+### Gravité des accidents (usagers)
+![Gravité](outputs/figures/03_gravite_usagers.png)
+
+### Accidents mortels par heure
+![Accidents mortels](outputs/figures/04_accidents_mortels_par_heure.png)
+
+### Top 15 départements
+![Top départements](outputs/figures/05_top_15_departements_accidents.png)
+
