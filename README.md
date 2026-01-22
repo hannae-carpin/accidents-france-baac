@@ -37,7 +37,7 @@ accidents-france-baac/
 ├─ src/                 # fonctions réutilisables (chargement/clean/kpi)
 ├─ outputs/
 │  ├─ figures/
-│  └─ report.md
+│  └─ report_insights.html
 ├─ requirements.txt
 └─ README.md
 ```
@@ -48,11 +48,16 @@ accidents-france-baac/
 - Python 3.10+ (recommandé)
 - Git (optionnel)
 
-### Installation
-```bash
+### Installation (Windows PowerShell)
+```powershell
 python -m venv .venv
-# Windows (PowerShell)
 .\.venv\Scripts\Activate.ps1
-
 pip install -r requirements.txt
 ```
+### Exécution
+Lancer les notebooks dans l’ordre :
+1. `notebooks/01_eda.ipynb`
+2. `notebooks/02_insights.ipynb`
+
+## Rapport HTML
+- Analyse des insights : `outputs/report_insights.html`
