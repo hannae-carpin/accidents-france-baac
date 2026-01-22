@@ -1,7 +1,7 @@
 # src/io.py
 from pathlib import Path
 import pandas as pd
-from typing import list, Optional
+from typing import Optional
 
 def load_baac_csv(
     path: Path,
