@@ -14,7 +14,7 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 ## Méthodologie
 1. Chargement robuste (séparateur/encodage)
 2. Contrôle qualité (types, valeurs manquantes, doublons)
-3. Jointures via l’identifiant d’accident
+3. Jointures via l’identifiant d’accident (`Num_Acc`)
 4. Feature engineering (date, heure, jour/semaine)
 5. KPI + visualisations
 6. Synthèse des insights & limites
@@ -40,3 +40,19 @@ accidents-france-baac/
 │  └─ report.md
 ├─ requirements.txt
 └─ README.md
+```
+
+## How to run
+
+### Prérequis
+- Python 3.10+ (recommandé)
+- Git (optionnel)
+
+### Installation
+```bash
+python -m venv .venv
+# Windows (PowerShell)
+.\.venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+```
