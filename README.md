@@ -6,6 +6,7 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 
 ## Données
 - Source : Bases de données annuelles des accidents corporels de la circulation (BAAC)
+- Lien de la source : https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation/
 - Fichiers utilisés (par année) : caractéristiques, lieux, véhicules, usagers
 - Niveau d’analyse :
   - Accident (caractéristiques + lieux)
@@ -88,4 +89,12 @@ start outputs\report_insights.html
 
 ### Top 15 départements
 ![Top départements](outputs/figures/05_top_15_departements_accidents.png)
+
+## Key insights (TL;DR)
+
+- Les accidents se concentrent principalement aux heures de pointe (7–9h, 17–19h).
+- Les départements les plus peuplés concentrent le volume brut d’accidents.
+- Les blessés légers représentent la majorité des usagers impliqués.
+- Les accidents mortels présentent une distribution horaire distincte.
+
 
