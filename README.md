@@ -30,6 +30,7 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 ```text
 accidents-france-baac/
 ├─ data/
+│  ├─ geo/  
 │  ├─ raw/              # CSV bruts
 │  └─ processed/        # datasets fusionnés
 ├─ notebooks/
@@ -87,8 +88,8 @@ start outputs\report_insights.html
 ### Accidents mortels par heure
 ![Accidents mortels](outputs/figures/04_accidents_mortels_par_heure.png)
 
-### Top 15 départements
-![Top départements](outputs/figures/05_top_15_departements_accidents.png)
+### Carte – Accidents par département
+![Carte accidents](outputs/figures/05_carte_accidents_par_departement.png)
 
 ## Key insights (TL;DR)
 
