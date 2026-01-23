@@ -15,4 +15,4 @@ def save_fig(filename: str, dpi: int = 150):
     plt.tight_layout()
     plt.savefig(path, dpi=dpi, bbox_inches="tight")
     plt.close()
-    return path  # 👈 on renvoie le chemin du fichier
+    return path 
