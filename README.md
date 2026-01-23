@@ -6,7 +6,7 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 
 ## Données
 - Source : Bases de données annuelles des accidents corporels de la circulation (BAAC)
-- Lien de la source : https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation/
+- Lien de la source : https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2024
 - Fichiers utilisés (par année) : caractéristiques, lieux, véhicules, usagers
 - Niveau d’analyse :
   - Accident (caractéristiques + lieux)
