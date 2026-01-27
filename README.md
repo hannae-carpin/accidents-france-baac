@@ -31,18 +31,19 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 accidents-france-baac/
 ├─ data/
 │  ├─ geo/  
-│  ├─ raw/              # CSV bruts
-│  └─ processed/        # datasets fusionnés
+│  ├─ processed/        # datasets fusionnés
+│  └─ raw/              # CSV bruts
+├─ docs/
+│  ├─ report_eda.html  
+│  └─ report_insights.html
 ├─ notebooks/
 │  ├─ 01_eda.ipynb      # exploration & contrôle qualité
 │  └─ 02_insights.ipynb # analyses & recommandations
-├─ src/                 # fonctions réutilisables (chargement/clean/kpi)
 ├─ outputs/
-│  ├─ figures/
-│  ├─ report_eda.html
-│  └─ report_insights.html
-├─ requirements.txt
-└─ README.md
+│  └─ figures/
+├─ src/                 # fonctions réutilisables (chargement/clean/kpi)
+├─ README.md
+└─ requirements.txt
 ```
 
 ## How to run
@@ -77,10 +78,10 @@ start outputs\report_insights.html
 ## Aperçu des résultats
 
 ### Accidents par heure
-![Accidents par heure](outputs/figures/01_accidents_par_heure.png)
+![Risque relatif par heure](outputs/figures/01_risque_relatif_par_heure.png)
 
 ### Accidents par jour de la semaine
-![Accidents par jour](outputs/figures/02_accidents_par_jour_semaine.png)
+![Accidents par jour et par heure](outputs/figures/02_heatmap_accidents_heure_jour.png)
 
 ### Gravité des accidents (usagers)
 ![Gravité](outputs/figures/03_gravite_usagers.png)
@@ -89,7 +90,7 @@ start outputs\report_insights.html
 ![Accidents mortels](outputs/figures/04_accidents_mortels_par_heure.png)
 
 ### Carte – Accidents par département
-![Carte accidents](outputs/figures/05_carte_accidents_par_departement.png)
+![Carte accidents](outputs/figures/05_carte_accidents_par_departement_taux_100k.png)
 
 ## Key insights (TL;DR)
 
