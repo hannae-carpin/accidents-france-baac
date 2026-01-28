@@ -1,8 +1,7 @@
 # Accidents de la route en France (BAAC) — Analyse Open Data
 
 ## Objectif
-Analyser les accidents corporels de la circulation en France à partir des bases BAAC
-afin d’identifier des patterns temporels et territoriaux (quand, où, qui est le plus touché) et produire des indicateurs utiles à la décision.
+Analyser les accidents corporels de la circulation en France à partir des bases BAAC afin d’identifier des patterns temporels et territoriaux (quand, où) et de produire des indicateurs d’aide à la décision.
 
 ## Données
 - Source : Bases de données annuelles des accidents corporels de la circulation (BAAC)
@@ -11,20 +10,26 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 - Niveau d’analyse :
   - Accident (caractéristiques + lieux)
   - Usager (gravité / profil) via jointures
+Ces données sont enrichies par des sources externes afin de permettre des analyses territoriales comparables.
+- Données complémentaires :
+  - Fichier géographique des départements (GeoJSON) utilisé pour la cartographie des accidents.
+  - Données de population par département utilisées pour le calcul des taux d’accidents pour 100 000 habitants.
 
 ## Méthodologie
 1. Chargement robuste (séparateur/encodage)
 2. Contrôle qualité (types, valeurs manquantes, doublons)
 3. Jointures via l’identifiant d’accident (`Num_Acc`)
 4. Feature engineering (date, heure, jour)
-5. KPI + visualisations
+5. KPI + visualisations 
+Les comparaisons territoriales reposent sur des indicateurs normalisés par la population.
 6. Synthèse des insights & limites
 
 ## Résultats attendus (MVP)
 - Identifier les principaux patterns temporels.
 - Analyser la répartition de la gravité des accidents côté usagers.
 - Mettre en évidence les périodes à sur-risque de mortalité selon l’heure.
-- Comparer les départements selon le niveau d’accidents en taux rapporté à la population.
+- Comparer les départements selon le niveau d’accidents, à partir de taux rapportés à la population.
+
 
 ## Structure du repo
 ```text
@@ -87,7 +92,7 @@ start outputs\report_insights.html
 ### Gravité des accidents (usagers)
 ![Gravité](outputs/figures/03_gravite_usagers.png)
 
-### Accidents mortels par heure
+### Sur-risque de mortalité par heure
 ![Accidents mortels](outputs/figures/04_sur_risque_mortalite_par_heure.png)
 
 ### Carte – Accidents par département
@@ -97,7 +102,7 @@ start outputs\report_insights.html
 
 - Les accidents se concentrent principalement en semaine aux heures de pointe (7–9h, 17–19h).
 - Les blessés légers représentent la majorité des usagers impliqués.
-- Les accidents mortels présentent une distribution horaire distincte, avec un sur-risque marqué durant la nuit et en début de matinée, indépendamment du volume d’accidents.
+- Les accidents mortels présentent une distribution horaire distincte, avec un sur-risque marqué durant la nuit et en début de matinée, indépendamment du volume d’accidents observé.
 - Les départements présentant les taux les plus élevés combinent des profils contrastés : hyper-urbanisation (Paris), contraintes géographiques (Corse-du-Sud, Hautes-Alpes) ou forte exposition aux axes routiers rapides (Marne, Aube).
 
 
