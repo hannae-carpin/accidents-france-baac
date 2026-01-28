@@ -1,5 +1,7 @@
 # src/features.py
 import pandas as pd
+import numpy as np
+
 
 def add_time_features(acc):
     """
@@ -16,17 +18,12 @@ def add_time_features(acc):
 
     acc["weekday"] = acc["date"].dt.day_name()
 
-    acc["hour"] = pd.to_datetime(
-        acc["hrmn"],
-        format="%H:%M",
-        errors="coerce"
-    ).dt.hour
+    h = acc["hrmn"].astype("string").str.strip()
+    h = h.where(h.str.contains(":"), h.str.zfill(4).str.slice(0, 2) + ":" + h.str.slice(2, 4))
 
-    acc["time"] = pd.to_datetime(
-    acc["hrmn"],
-    format="%H:%M",
-    errors="coerce"
-)
+    acc["time"] = pd.to_datetime(h, format="%H:%M", errors="coerce")
+    acc["hour"] = acc["time"].dt.hour
+
     return acc
 
 def merge_usagers_accidents(usag, acc):
@@ -109,3 +106,50 @@ def add_taux_100k(acc_dep, pop):
     acc_dep_pop.loc[acc_dep_pop["population"].isna() | (acc_dep_pop["population"] <= 0), "taux_100k"] = pd.NA
 
     return acc_dep_pop
+
+def compute_sur_risque_mortalite_par_heure(usag_acc, id_col, hour_col, grav_col, fatal_label, window):
+    """
+    Calcule un indice de sur-risque de mortalité par heure :
+    (tués_h / accidents_h) / (tués_total / accidents_total)
+    """
+    usag_acc = usag_acc[[id_col, hour_col, grav_col]].copy()
+
+    deaths_per_hour = (
+        usag_acc.loc[usag_acc[grav_col] == fatal_label, hour_col]
+        .value_counts()
+        .reindex(range(24), fill_value=0)
+        .sort_index()
+    )
+
+    acc_per_hour = (
+        usag_acc[[id_col, hour_col]]
+        .drop_duplicates(subset=[id_col])
+        [hour_col]
+        .value_counts()
+        .reindex(range(24), fill_value=0)
+        .sort_index()
+    )
+
+    mortality_rate = deaths_per_hour / acc_per_hour.replace(0, np.nan)
+
+    if acc_per_hour.sum() == 0:
+        global_rate = np.nan
+    else:
+        global_rate = deaths_per_hour.sum() / acc_per_hour.sum()
+
+    if np.isnan(global_rate) or global_rate == 0:
+        risk_index = pd.Series(np.nan, index=range(24))
+    else:
+        risk_index = mortality_rate / global_rate
+
+    risk_index_ma = risk_index.rolling(window=window, center=True, min_periods=1).mean()
+
+    return {
+        "deaths_per_hour": deaths_per_hour,
+        "acc_per_hour": acc_per_hour,
+        "mortality_rate": mortality_rate,
+        "global_rate": global_rate,
+        "risk_index": risk_index,
+        "risk_index_ma": risk_index_ma,
+    }
+

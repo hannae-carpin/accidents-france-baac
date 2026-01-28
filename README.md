@@ -6,7 +6,7 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 
 ## Données
 - Source : Bases de données annuelles des accidents corporels de la circulation (BAAC)
-- Lien de la source : https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2024
+- Lien : https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2024
 - Fichiers utilisés (par année) : caractéristiques, lieux, véhicules, usagers
 - Niveau d’analyse :
   - Accident (caractéristiques + lieux)
@@ -16,21 +16,22 @@ afin d’identifier des patterns temporels et territoriaux (quand, où, qui est 
 1. Chargement robuste (séparateur/encodage)
 2. Contrôle qualité (types, valeurs manquantes, doublons)
 3. Jointures via l’identifiant d’accident (`Num_Acc`)
-4. Feature engineering (date, heure, jour/semaine)
+4. Feature engineering (date, heure, jour)
 5. KPI + visualisations
 6. Synthèse des insights & limites
 
 ## Résultats attendus (MVP)
-- Accidents par heure / jour / mois
-- Top départements (volume)
-- Répartition de la gravité côté usagers
-- Profils les plus exposés (catégorie d’usager, âge si disponible)
+- Identifier les principaux patterns temporels.
+- Analyser la répartition de la gravité des accidents côté usagers.
+- Mettre en évidence les périodes à sur-risque de mortalité selon l’heure.
+- Comparer les départements selon le niveau d’accidents en taux rapporté à la population.
 
 ## Structure du repo
 ```text
 accidents-france-baac/
 ├─ data/
 │  ├─ geo/  
+│  ├─ population/
 │  ├─ processed/        # datasets fusionnés
 │  └─ raw/              # CSV bruts
 ├─ docs/
@@ -87,16 +88,17 @@ start outputs\report_insights.html
 ![Gravité](outputs/figures/03_gravite_usagers.png)
 
 ### Accidents mortels par heure
-![Accidents mortels](outputs/figures/04_accidents_mortels_par_heure.png)
+![Accidents mortels](outputs/figures/04_sur_risque_mortalite_par_heure.png)
 
 ### Carte – Accidents par département
 ![Carte accidents](outputs/figures/05_carte_accidents_par_departement_taux_100k.png)
 
 ## Key insights (TL;DR)
 
-- Les accidents se concentrent principalement aux heures de pointe (7–9h, 17–19h).
-- Les départements les plus peuplés concentrent le volume brut d’accidents.
+- Les accidents se concentrent principalement en semaine aux heures de pointe (7–9h, 17–19h).
 - Les blessés légers représentent la majorité des usagers impliqués.
-- Les accidents mortels présentent une distribution horaire distincte.
+- Les accidents mortels présentent une distribution horaire distincte, avec un sur-risque marqué durant la nuit et en début de matinée, indépendamment du volume d’accidents.
+- Les départements présentant les taux les plus élevés combinent des profils contrastés : hyper-urbanisation (Paris), contraintes géographiques (Corse-du-Sud, Hautes-Alpes) ou forte exposition aux axes routiers rapides (Marne, Aube).
+
 
 
