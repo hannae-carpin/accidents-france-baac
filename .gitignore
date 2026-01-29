@@ -20,3 +20,11 @@ Thumbs.db
 
 # VS Code
 .vscode/
+
+# ML
+models/
+__pycache__/
+reports/ml/*.png
+
+# Fichiers temporaires
+*.log

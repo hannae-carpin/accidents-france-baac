@@ -1,0 +1,18 @@
+{
+  "model": "hgb",
+  "ap_pr_auc": 0.16649446625820294,
+  "brier": 0.16895234408973073,
+  "test_prevalence": 0.05316725978647687,
+  "threshold_top_percent": 0.05,
+  "threshold_value": 0.7643918599784215,
+  "confusion_matrix": [
+    [
+      12744,
+      559
+    ],
+    [
+      603,
+      144
+    ]
+  ]
+}
