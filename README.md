@@ -91,10 +91,11 @@ Ils doivent être ouverts dans un navigateur web local.
 - Insights : outputs/report_insights.html
 - ML : outputs/ml/report.html
 
-Commande (Windows PowerShell) :
+```Commande (Windows PowerShell) :
 start outputs\report_eda.html
 start outputs\report_insights.html
 start outputs\ml\report.html
+```
 
 ## Aperçu des résultats
 
